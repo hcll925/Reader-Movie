@@ -1,4 +1,5 @@
-<view class="classname">
+<import src="post-item/post-item-template.wxml" />
+<view >
     <swiper indicator-dots="true" autoplay="true" interval="5000" circular="true">
         <swiper-item >
             <image src="/images/Lighthouse.jpg" ></image>
@@ -10,19 +11,7 @@
             <image src="/images/Hydrangeas.jpg" ></image>
         </swiper-item>
     </swiper>
-    <view class="post-container">
-        <view class="post-author-date">
-            <image class="post-author" src="/images/avatar/1.png"></image>
-            <text class="post-date">Nov 25 2016</text>
-        </view>
-        <text class="post-title">螃蟹</text>
-        <image class="post-image" src="/images/post/crab.png"></image>
-        <text class="post-content">这是螃蟹</text>
-        <view class="post-like">
-            <image class="post-like-image" src="/images/icon/chat.png"></image>
-            <text class="post-like-font">92</text>
-            <image class="post-like-image" src="/images/icon/view.png"></image>
-            <text class="post-like-font">65</text>
-        </view>
-    </view>
+    <block wx:for="{{posts_key}}" wx:for-item="item">
+        <template is="postItem" data="{{item}}"/>
+    </block>
 </view>
