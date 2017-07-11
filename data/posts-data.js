@@ -7,6 +7,7 @@ var local_database = [
         content: "菊黄蟹正肥，品尝秋之味。徐志摩把“看初花的滴露”",
         reading: "112",
         collection: "96",
+        postId:0
     },
     {
         date: "Nov 25 2016",
@@ -16,6 +17,7 @@ var local_database = [
         content: "一“李安是一位绝不会重复自己的导演”",
         reading: "112",
         collection: "96",
+        postId: 1
     },
     {
         title: "当我们在谈论经济学时，我们在谈论什么?",
@@ -25,7 +27,7 @@ var local_database = [
         collection: 92,
         date: "Nov 12 2016",
         avatar: "/images/avatar/3.png",
-
+        postId: 2
     },
     {
         title: "微信·小程序开发工具安装指南",
@@ -36,7 +38,7 @@ var local_database = [
         author: "猫是猫的猫",
         date: "Nov 20 2016",
         avatar: "/images/avatar/5.png",
-
+        postId: 3
     },
 ]
 
