@@ -11,7 +11,12 @@ var local_database = [
         author: "林白衣",
         dateTime: "24小时前",
         detail: "菊黄蟹正肥，品尝秋之味。徐志摩把“看初花的荻芦”和“到楼外楼吃蟹”并列为秋天来杭州不能错过的风雅之事；用林妹妹的话讲是“螯封嫩玉双双满，壳凸红脂块块香”；在《世说新语》里，晋毕卓更是感叹“右手持酒杯，左手持蟹螯，拍浮酒船中，便足了一生矣。”漫漫人生长路，美食与爱岂可辜负？于是作为一个吃货，突然也很想回味一下属于我的味蕾记忆。记忆中的秋蟹，是家人的味道，弥漫着浓浓的亲情。\n\n是谁来自山川湖海，却囿于昼夜，厨房与爱？ 是母亲，深思熟虑，聪明耐心。吃蟹前，总会拿出几件工具，煞有介事而乐此不疲。告诉我们螃蟹至寒，需要佐以姜茶以祛寒，在配备的米醋小碟里，亦添入姜丝与紫苏，前者驱寒后者增香。泡好菊花茶，岁月静好，我们静等。",
-        postId: 0
+        postId: 0,
+        music: {
+            url: "http://ws.stream.qqmusic.qq.com/C100003507bR0gDKBm.m4a?fromtag=38",
+            title: "夜夜夜夜-齐秦",
+            coverImg: "http://y.gtimg.cn/music/photo_new/T002R150x150M000001TEc6V0kjpVC.jpg?max_age=2592000"
+        }
     },
     {
         title: "比利·林恩的中场故事",
@@ -26,6 +31,11 @@ var local_database = [
         date: "Nov 20 2016",
         avatar: "/images/avatar/1.png",
         postId: 1,
+        music: {
+            url: "http://ws.stream.qqmusic.qq.com/C100003GdCmG4NkEOR.m4a?fromtag=38",
+            title: "鬼迷心窍-李宗盛",
+            coverImg: "http://y.gtimg.cn/music/photo_new/T002R150x150M000002xOmp62kqSic.jpg?max_age=2592000"
+        }
     },
     {
         title: "当我们在谈论经济学时，我们在谈论什么?",
@@ -40,6 +50,11 @@ var local_database = [
         dateTime: "三天前",
         avatar: "/images/avatar/3.png",
         postId: 2,
+        music: {
+            url: "http://ws.stream.qqmusic.qq.com/C100004HLusI2lLjZy.m4a?fromtag=38",
+            title: "女儿情-万晓利",
+            coverImg: "http://y.gtimg.cn/music/photo_new/T002R150x150M000004Wv5BO30pPc0.jpg?max_age=2592000"
+        }
     },
     {
         title: "微信·小程序开发工具安装指南",
@@ -54,6 +69,11 @@ var local_database = [
         date: "Nov 20 2016",
         avatar: "/images/avatar/5.png",
         postId: 3,
+        music: {
+            url: "http://ws.stream.qqmusic.qq.com/C100002mWVx72p8Ugp.m4a?fromtag=38",
+            title: "恋恋风尘-老狼",
+            coverImg: "http://y.gtimg.cn/music/photo_new/T002R150x150M000001VaXQX1Z1Imq.jpg?max_age=2592000",
+        }
     },
     {
         title: "从视觉到触觉 这款VR手套能给你真实触感",
@@ -68,7 +88,31 @@ var local_database = [
         date: "Nov 20 2016",
         avatar: "../../../images/avatar/3.png",
         postId: 4,
-    }
+        music: {
+            url: "http://ws.stream.qqmusic.qq.com/C100000Zn0vS4fKKo8.m4a?fromtag=38",
+            title: "沉默是金-张国荣",
+            coverImg: "http://y.gtimg.cn/music/photo_new/T002R150x150M000003at0mJ2YrR2H.jpg?max_age=2592000"
+        }
+    },
+    {
+        title: "爱奇艺创维开展战略合作，合力布局开放娱乐生态",
+        content: "爱奇艺和创维分别作为国内领先的在线视频品牌",
+        imgSrc: "/images/iqiyi.png",
+        reading: 96,
+        detail: "爱奇艺和创维分别作为国内领先的在线视频品牌和家电品牌。双方一直锐意创新，为用户提供优质的服务体验和产品体验。据悉，爱奇艺与创维将展开从资本到VIP会员服务等各方面的深入合作。籍由此次合作，爱奇艺将战略投资创维旗下拥有高端互联网电视品牌的酷开公司。从下一财年开始，创维旗下互联网电视将通过银河互联网电视集成播控平台，预置VIP会员服务及相关内容。这种捆绑终端与VIP内容的全新销售模式，将大幅提升互联网电视终端用户的体验，给予用户更多优质内容的选择。",
+        collection: 26,
+        dateTime: "21小时前",
+        headImgSrc: "/images/iqiyi.png",
+        author: "深白色",
+        date: "Nov 20 2016",
+        avatar: "../../../images/avatar/5.png",
+        postId: 5,
+        music: {
+            url: "http://ws.stream.qqmusic.qq.com/C100002I8eGJ28BI17.m4a?fromtag=38",
+            title: "朋友-谭咏麟",
+            coverImg: "http://y.gtimg.cn/music/photo_new/T002R150x150M000004eGsCN3SUheO.jpg?max_age=2592000"
+        }
+    },
 ]
 
 module.exports = {
