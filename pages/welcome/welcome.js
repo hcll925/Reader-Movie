@@ -1,15 +1,7 @@
 Page({
-    onTap:function() {
-        wx.redirectTo({
+    onTap: function () {
+        wx.switchTab({
             url: '../posts/post',
         })
     },
-
-    onUnload:function() {
-        console.log('onunload');
-    },
-
-    onHide:function() {
-        console.log('onhide');
-    }
 })
