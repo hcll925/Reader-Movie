@@ -1,9 +1,12 @@
 // pages/movies/more-movies/more-movies.js
-var util = require('../../../utils/util.js');
 var app = getApp();
+var util = require('../../../utils/util.js');
 Page({
     data: {
-        movies: {}
+        movies: {},
+        requestUrl: "",
+        totalCount: 0,
+        isEmpty: true,
     },
 
     onLoad: function (options) {
@@ -23,7 +26,14 @@ Page({
                 dataUrl = app.globalData.doubanBase + "/v2/movie/top250";
                 break;
         }
+        this.data.requestUrl = dataUrl;
         util.http(dataUrl, this.processDoubanData);
+    },
+
+    onScrollLower :function(event) {
+        var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count=20";
+        util.http(nextUrl, this.processDoubanData);
+        wx.showNavigationBarLoading();
     },
 
     processDoubanData: function (moviesDouban) {
@@ -43,8 +53,19 @@ Page({
             }
             movies.push(temp)
         }
+        var totalMovies = {};
+
+        // 如果要绑定新加载的数组，那么要把旧的数组合并
+        if(!this.data.isEmpty) {
+            totalMovies = this.data.movies.concat(movies);
+        }else {
+            totalMovies = movies;
+            this.data.isEmpty = false;
+        }
         this.setData({
-            movies: movies
+            movies: totalMovies
         });
+        this.data.totalCount += 20;
+        wx.hideNavigationBarLoading();
     }
 })
