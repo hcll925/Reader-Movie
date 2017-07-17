@@ -1,9 +1,10 @@
 // pages/movies/more-movies/more-movies.js
-var app = getApp();
-var util = require('../../../utils/util.js');
+var app = getApp()
+var util = require('../../../utils/util.js')
 Page({
     data: {
         movies: {},
+        navigateTitle: "",
         requestUrl: "",
         totalCount: 0,
         isEmpty: true,
@@ -11,9 +12,7 @@ Page({
 
     onLoad: function (options) {
         var category = options.category;
-        wx.setNavigationBarTitle({
-            title: category,
-        });
+        this.data.navigateTitle = category;
         var dataUrl = '';
         switch (category) {
             case "正在热映":
@@ -30,9 +29,23 @@ Page({
         util.http(dataUrl, this.processDoubanData);
     },
 
-    onScrollLower :function(event) {
+    // onScrollLower :function(event) {
+    //     var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count=20";
+    //     util.http(nextUrl, this.processDoubanData);
+    //     wx.showNavigationBarLoading();
+    // },
+
+    onReachBottom: function(event) {
         var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count=20";
         util.http(nextUrl, this.processDoubanData);
+        wx.showNavigationBarLoading();
+    },
+    
+    onPullDownRefresh: function(event) {
+        var refreshUrl = this.data.requestUrl + "?star=0&count=20";
+        this.data.movies = {},
+        this.data.isEmpty = true,
+        util.http(refreshUrl,this.processDoubanData);
         wx.showNavigationBarLoading();
     },
 
@@ -67,5 +80,12 @@ Page({
         });
         this.data.totalCount += 20;
         wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+    },
+
+    onReady: function(event) {
+        wx.setNavigationBarTitle({
+            title: category,
+        });
     }
 })
