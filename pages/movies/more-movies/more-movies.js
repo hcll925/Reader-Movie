@@ -4,7 +4,6 @@ var util = require('../../../utils/util.js')
 Page({
     data: {
         movies: {},
-        navigateTitle: "",
         requestUrl: "",
         totalCount: 0,
         isEmpty: true,
@@ -12,7 +11,9 @@ Page({
 
     onLoad: function (options) {
         var category = options.category;
-        this.data.navigateTitle = category;
+        wx.setNavigationBarTitle({
+            title: category,
+        });
         var dataUrl = '';
         switch (category) {
             case "正在热映":
@@ -45,6 +46,7 @@ Page({
         var refreshUrl = this.data.requestUrl + "?star=0&count=20";
         this.data.movies = {},
         this.data.isEmpty = true,
+        this.data.totalCount = 0;
         util.http(refreshUrl,this.processDoubanData);
         wx.showNavigationBarLoading();
     },
@@ -83,9 +85,10 @@ Page({
         wx.stopPullDownRefresh();
     },
 
-    onReady: function(event) {
-        wx.setNavigationBarTitle({
-            title: category,
+    onMovieTap: function (event) {
+        var movieId = event.currentTarget.dataset.movieid;
+        wx.navigateTo({
+            url: "../movie-detail/movie-detail?id=" + movieId,
         });
-    }
+    },
 })

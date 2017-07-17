@@ -61,6 +61,18 @@ Page({
             }
             app.globalData.g_isPlayingMusic = false;
         });
+        wx.onBackgroundAudioStop(function() {
+            var pages = getCurrentPages();
+            var currentPage = pages[pages.length - 1];
+            if (currentPage.data.currentPostId === that.data.currentPostId) {
+                if (app.globalData.g_currentMusicPostId === that.data.currentPostId) {
+                    that.setData({
+                        isPlayingMusic: false
+                    });
+                }
+            }
+            app.globalData.g_isPlayingMusic = false;
+        });
     },
 
     /**
