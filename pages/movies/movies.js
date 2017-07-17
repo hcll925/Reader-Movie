@@ -5,7 +5,10 @@ Page({
         // 初始化
         inTheaters: {},
         comingSoon: {},
-        top250: {}
+        top250: {},
+        searchResult: {},
+        containerShow: true,
+        searchPanelShow: false,
     },
 
     onLoad: function (event) {
@@ -37,6 +40,26 @@ Page({
                 that.processDoubanData(res.data, settedKey,categoryTitle);
             }
         })
+    },
+
+    conCancelImgTap: function(event) {
+        this.setData({
+            containerShow: true,
+            searchPanelShow: false,
+        });
+    },
+
+    onBindFocus: function(event) {
+        this.setData({
+            containerShow: false,
+            searchPanelShow:true,
+        });
+    },
+
+    onBindFirm: function(event) {
+        var text = event.detail.value;
+        var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
+        this.getMovieListData(searchUrl,"searchResult","");
     },
 
     processDoubanData: function (moviesDouban, settedKey,categoryTitle) {
